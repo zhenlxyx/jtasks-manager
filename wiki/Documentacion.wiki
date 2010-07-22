@@ -1,0 +1,20 @@
+#summary Documentación sobre jtasks manager
+#labels documentación,tareas,tasks,gestor,jquery,jqueryui
+
+= Administrador de tareas =
+
+== Introducción ==
+
+El plugin jTasks manager permite de forma sencilla y flexible la inclusión de un gestor de tareas en las aplicaciones Web. Esta desarrollado mediante jQuery y jQuery UI y inspirado en la extensión Google Tasks de Google Chrome.
+
+
+== Características de las tareas ==
+
+  * Listar tareas en formato de lista
+  * Ordenación de las lista mostrando las tareas pendientes de realizar primero, al mismo tiempo que por orden de fecha.
+  * Muestra la descripción de la tarea y su fecha
+  * Se puede marcar una tarea como hecha o bien desmarcarla.
+  * Dispone de formulario de edición con un calendario
+  * Muestra en todo momento si el sistema está trabajando (realizando alguna acción con la base de datos)
+
+Para este plugin es necesario un código de servidor para poder realizar las de actualización de la base de datos. Actualmente está desarrollado en PHP y ataca una base de datos MySQL, pero es fácilmente extensible a otros lenguajes de servidor y otros motores de base de datos.
