@@ -18,3 +18,22 @@ El plugin jTasks manager permite de forma sencilla y flexible la inclusión de u
   * Muestra en todo momento si el sistema está trabajando (realizando alguna acción con la base de datos)
 
 Para este plugin es necesario un código de servidor para poder realizar las de actualización de la base de datos. Actualmente está desarrollado en PHP y ataca una base de datos MySQL, pero es fácilmente extensible a otros lenguajes de servidor y otros motores de base de datos.
+
+
+== Versión actual ==
+
+La versión actual es la 1.0
+
+
+== Primeros pasos ==
+
+Primero descargar el código de Google Code. El fichero zip contiene un ejemplo, el código js y css, además del script SQL para crear la tabla de la base de datos y el motor php del sistema.
+
+Una vez está el configurado el fichero PHP en el servidor, ya es posible llamar al plugin  en el contenedor:
+
+$("#tasks").jTasks();
+
+Hay diferentes parámetros de configuración para ajustar el aspecto y elementos del gestor de tareas para evitar tocar el código. Estos se describen a continuación:
+
+
+== Opciones de configuración / Llamadas a eventos
