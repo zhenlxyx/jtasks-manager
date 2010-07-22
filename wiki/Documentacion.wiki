@@ -31,9 +31,24 @@ Primero descargar el código de Google Code. El fichero zip contiene un ejemplo,
 
 Una vez está el configurado el fichero PHP en el servidor, ya es posible llamar al plugin  en el contenedor:
 
+{{{
 $("#tasks").jTasks();
+}}}
 
 Hay diferentes parámetros de configuración para ajustar el aspecto y elementos del gestor de tareas para evitar tocar el código. Estos se describen a continuación:
 
 
-== Opciones de configuración / Llamadas a eventos
+== Opciones de configuración / Llamadas a eventos ==
+
+Estos parámetros de configuración son opcionales pero realmente útiles para su configuración.
+
+  * *title:* [string | default: "jQuery Task manager"] - Título superior del gestor de tareas.
+  * *addText:* [string | default: "Add task"] - Texto del vínculo de añadir un nueva tarea.
+  * *width:* [integer | default: 250] - Ancho del plugin.
+  * *height:* [integer | default: 200] - Altura del plugin. En caso de ser necesario más espacio aparecen barras de desplazamiento.
+  * *jsonUrl:* [string | default: "tasques.php"] - Url del fichero motor del servidor.
+  * *showLoading:* [boolean | default: true] - Mostrar o no mostrar la animación conforme esta trabajando.
+  * *loadingImg:* [string | default: "img/spinner.gif"] - Imagen que aparecerá como indicador de trabajo.
+  * *formTask:* [string | default:".dialog-form-tasca"] - Nombre de la classe que contiene el formulario de edición/creación de la tarea.
+  * *initTaskForm:* [function()] - Permite reiniciar los campos del formulario de administración de las tareas.
+  * *refresh:* [function()] - Vuelve a cargar las tareas desde la base de datos.
