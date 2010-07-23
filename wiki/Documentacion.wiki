@@ -52,3 +52,24 @@ Estos parámetros de configuración son opcionales pero realmente útiles para s
   * *formTask:* _string | default:".dialog-form-tasca"_ - Nombre de la classe que contiene el formulario de edición/creación de la tarea.
   * *initTaskForm:* _function()_ - Permite reiniciar los campos del formulario de administración de las tareas.
   * *refresh:* _function()_ - Vuelve a cargar las tareas desde la base de datos.
+
+
+== Dependencias ==
+
+  * jQuery 1.4.2
+  * jQuery UI 1.8.2
+  * PHP versión 5.2 y PECL json 1.2 para el uso del método PHP: json_encode()
+  * MySQL 4.x
+
+
+== Estructura de la base de datos ==
+
+{{{
+CREATE TABLE IF NOT EXISTS `tasques` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `descripcio` varchar(255) NOT NULL,
+  `estat` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+}}}
