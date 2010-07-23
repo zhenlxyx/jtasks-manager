@@ -64,6 +64,13 @@ Estos parámetros de configuración son opcionales pero realmente útiles para s
 
 == Estructura de la base de datos ==
 
+Para poder guardar la información que de las tareas es necesario disponer de una tabla en nuestra base de datos como mínimo con estos campos:
+
+*id*: identificador autonumérico
+*data*: fecha en que se debe realizar la tarea
+*descripcio*: texto de descripción de la tarea
+*estat*: para indicar si la tarea esta realizada o no (1 = realizada, 0 = no realizada)
+
 {{{
 CREATE TABLE IF NOT EXISTS `tasques` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
