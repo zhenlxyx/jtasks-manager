@@ -1,0 +1,84 @@
+# Administrador de tareas #
+
+## Introducción ##
+
+El plugin jTasks manager permite de forma sencilla y flexible la inclusión de un gestor de tareas en las aplicaciones Web. Esta desarrollado mediante jQuery y jQuery UI y inspirado en la extensión Google Tasks de Google Chrome.
+
+
+## Características de las tareas ##
+
+  * Listar tareas en formato de lista
+  * Ordenación de las lista mostrando las tareas pendientes de realizar primero, al mismo tiempo que por orden de fecha.
+  * Muestra la descripción de la tarea y su fecha
+  * Se puede marcar una tarea como hecha o bien desmarcarla.
+  * Dispone de formulario de edición con un calendario
+  * Muestra en todo momento si el sistema está trabajando (realizando alguna acción con la base de datos)
+
+Para este plugin es necesario un código de servidor para poder realizar las de actualización de la base de datos. Actualmente está desarrollado en PHP y ataca una base de datos MySQL, pero es fácilmente extensible a otros lenguajes de servidor y otros motores de base de datos.
+
+
+## Versión actual ##
+
+La versión actual es la 1.0
+
+
+## Demostración ##
+
+Puedes encontrar una demostración en mi página Web: **[Demo jTasks manager](http://www.dsite.es/jtasks-demo)**
+
+
+## Primeros pasos ##
+
+Primero descargar el código de Google Code. El fichero zip contiene un ejemplo, el código js y css, además del script SQL para crear la tabla de la base de datos y el motor php del sistema.
+
+Una vez está el configurado el fichero PHP en el servidor, ya es posible llamar al plugin  en el contenedor:
+
+```
+$("#tasks").jTasks();
+```
+
+Hay diferentes parámetros de configuración para ajustar el aspecto y elementos del gestor de tareas para evitar tocar el código. Estos se describen a continuación:
+
+
+## Opciones de configuración / Llamadas a eventos ##
+
+Estos parámetros de configuración son opcionales pero realmente útiles para su configuración.
+
+  * **title:** _string | default: "jQuery Task manager"_ - Título superior del gestor de tareas.
+  * **addText:** _string | default: "Add task"_ - Texto del vínculo de añadir un nueva tarea.
+  * **width:** _integer | default: 250_ - Ancho del plugin.
+  * **height:** _integer | default: 200_ - Altura del plugin. En caso de ser necesario más espacio aparecen barras de desplazamiento.
+  * **jsonUrl:** _string | default: "tasques.php"_ - Url del fichero motor del servidor.
+  * **showLoading:** _boolean | default: true_ - Mostrar o no mostrar la animación conforme esta trabajando.
+  * **loadingImg:** _string | default: "img/spinner.gif"_ - Imagen que aparecerá como indicador de trabajo.
+  * **formTask:** _string | default:".dialog-form-tasca"_ - Nombre de la classe que contiene el formulario de edición/creación de la tarea.
+  * **initTaskForm:** _function()_ - Permite reiniciar los campos del formulario de administración de las tareas.
+  * **refresh:** _function()_ - Vuelve a cargar las tareas desde la base de datos.
+
+
+## Dependencias ##
+
+  * jQuery 1.4.2
+  * jQuery UI 1.8.2
+  * PHP versión 5.2 y PECL json 1.2 para el uso del método PHP: json\_encode()
+  * MySQL 4.x
+
+
+## Estructura de la base de datos ##
+
+Para poder guardar la información que de las tareas es necesario disponer de una tabla en nuestra base de datos como mínimo con estos campos:
+
+  * **id**: identificador autonumérico
+  * **data**: fecha en que se debe realizar la tarea
+  * **descripcio**: texto de descripción de la tarea
+  * **estat**: para indicar si la tarea esta realizada o no (1 = realizada, 0 = no realizada)
+
+```
+CREATE TABLE IF NOT EXISTS `tasques` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `descripcio` varchar(255) NOT NULL,
+  `estat` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+```
